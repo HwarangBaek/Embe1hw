@@ -2,5 +2,5 @@
 #include "myProject.h"
 void printMyName2(void)
 {    
-     printf("2. my name is [김재훈]\n");
+     printf("2. my name is [김 재훈]\n");
 }
