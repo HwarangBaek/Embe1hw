@@ -14,3 +14,8 @@ button.o: button.h button.c
 
 led.o: led.h led.c
 	arm-linux-gnueabi-gcc -c led.c -o led.o
+
+clean:
+	rm *.o
+	rm *.elf
+	rm *.a
