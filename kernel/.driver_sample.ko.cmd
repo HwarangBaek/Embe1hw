@@ -1,0 +1,1 @@
+cmd_/home/younghun/kernel/driver_sample.ko := arm-linux-gnueabi-ld -EL -r  -T /home/younghun/kernel/linux_kernel/scripts/module-common.lds --build-id  -o /home/younghun/kernel/driver_sample.ko /home/younghun/kernel/driver_sample.o /home/younghun/kernel/driver_sample.mod.o
