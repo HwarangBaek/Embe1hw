@@ -1,7 +1,7 @@
 all: libMyPeri.a ledtest.elf buttontest.elf fndtest.elf buzzertest.elf textlcdtest.elf
 
 textlcdtest.elf: textlcdtest.c libMyPeri.a
-	arm-linux-gnueabi-gcc textlcdtest.c -lMyPeri -L. -o textledtest.elf
+	arm-linux-gnueabi-gcc textlcdtest.c -lMyPeri -L. -o textlcdtest.elf
 
 buzzertest.elf: buzzertest.c libMyPeri.a
 	arm-linux-gnueabi-gcc buzzertest.c -lMyPeri -L. -o buzzertest.elf
