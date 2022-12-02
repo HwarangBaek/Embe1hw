@@ -1,7 +1,7 @@
-all: libMyPeri.a ledtest.elf buttontest.elf fndtest.elf buzzertest.elf textlcdtest.elf colorledtest.elf temperaturetest.elf accelMagGyrotest.elf
+all: libMyPeri.a ledtest.elf buttontest.elf fndtest.elf buzzertest.elf textlcdtest.elf colorledtest.elf temperaturetest.elf AccMagGyr.elf
 
-accelMagGyrotest.elf: accelMagGyrotest.c libMyPeri.a
-	arm-linux-gnueabi-gcc accelMagGyrotest.c -lMyPeri -L. -o accelMagGyrotest.elf
+AccMagGyr.elf: accelMagGyrotest.c libMyPeri.a
+	arm-linux-gnueabi-gcc accelMagGyrotest.c -lMyPeri -L. -o AccMagGyr.elf
 
 temperaturetest.elf: temperaturetest.c libMyPeri.a
 	arm-linux-gnueabi-gcc temperaturetest.c -lMyPeri -L. -o temperaturetest.elf

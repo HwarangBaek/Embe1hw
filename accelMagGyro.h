@@ -1,9 +1,8 @@
 #ifndef _GYRO_H_
 #define _GYRO_H_
 
-int total(void);
-//int Magnetometer(void);
-//int Gyroscope(void);
-
+int Mag(void);
+int Accel(void);
+int Gyro(void);
 
 #endif

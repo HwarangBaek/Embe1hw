@@ -6,7 +6,8 @@
 #define ACCELPATH "/sys/class/misc/FreescaleAccelerometer/"
 #define MAGNEPATH "/sys/class/misc/FreescaleMagnetometer/"
 #define GYROPATH "/sys/class/misc/FreescaleGyroscope/"
-int total (void)
+
+int Accel(void)
 {
 int fd = 0;
 FILE *fp = NULL;
@@ -19,7 +20,12 @@ int accel[3];
 fscanf(fp,"%d, %d, %d",&accel[0],&accel[1],&accel[2]);
 printf ("I read Accel %d, %d, %d\r\n",accel[0],accel[1],accel[2]);
 fclose(fp);
+return 0;
+}
 
+int Mag(void){
+int fd = 0;
+FILE *fp = NULL;
 //Magnetometer
 fd = open (MAGNEPATH "enable",O_WRONLY);
 dprintf (fd,"1");
@@ -29,7 +35,13 @@ int magne[3];
 fscanf(fp,"%d, %d, %d",&magne[0],&magne[1],&magne[2]);
 printf ("I read Magneto %d, %d, %d\r\n",magne[0],magne[1],magne[2]);
 fclose(fp);
+return 0;
+}
+
+int Gyro(void){
 //Gyroscope
+int fd = 0;
+FILE *fp = NULL;
 fd = open (GYROPATH "enable",O_WRONLY);
 dprintf (fd,"1");
 close(fd);
