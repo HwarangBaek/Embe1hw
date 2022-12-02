@@ -6,10 +6,11 @@
 
 int main (void)
 {
-    Accel();
-    sleep(1);
-    Mag();
-    sleep(1);
+    while(1){
+    //Accel();
+    //Mag();
     Gyro();
+    sleep(0.1);
+    }
     return 0;
 }
