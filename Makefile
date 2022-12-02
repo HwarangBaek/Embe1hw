@@ -1,4 +1,7 @@
-all: libMyPeri.a ledtest.elf buttontest.elf fndtest.elf buzzertest.elf textlcdtest.elf colorledtest.elf temperaturetest.elf
+all: libMyPeri.a ledtest.elf buttontest.elf fndtest.elf buzzertest.elf textlcdtest.elf colorledtest.elf temperaturetest.elf accelMagGyrotest.elf
+
+accelMagGyrotest.elf: accelMagGyrotest.c libMyPeri.a
+	arm-linux-gnueabi-gcc accelMagGyrotest.c -lMyPeri -L. -o accelMagGyrotest.elf
 
 temperaturetest.elf: temperaturetest.c libMyPeri.a
 	arm-linux-gnueabi-gcc temperaturetest.c -lMyPeri -L. -o temperaturetest.elf
@@ -21,8 +24,11 @@ ledtest.elf: ledtest.c libMyPeri.a
 buttontest.elf: buttontest.c libMyPeri.a
 	arm-linux-gnueabi-gcc buttontest.c -lMyPeri -L. -lpthread -o buttontest.elf
 
-libMyPeri.a: button.o led.o fnd.o buzzer.o textlcd.o colorled.o temperature.o
-	arm-linux-gnueabi-ar rc libMyPeri.a led.o button.o fnd.o buzzer.o textlcd.o colorled.o temperature.o
+libMyPeri.a: button.o led.o fnd.o buzzer.o textlcd.o colorled.o temperature.o accelMagGyro.o
+	arm-linux-gnueabi-ar rc libMyPeri.a button.o buzzer.o led.o fnd.o textlcd.o colorled.o temperature.o accelMagGyro.o
+
+accelMagGyro.o: accelMagGyro.h accelMagGyro.c
+	arm-linux-gnueabi-gcc -c accelMagGyro.c -o accelMagGyro.o
 
 temperature.o: temperature.h temperature.c
 	arm-linux-gnueabi-gcc -c temperature.c -o temperature.o
